@@ -20,22 +20,22 @@ for($y=0; $y<$height; $y++){
         if($lines[$y][$x]=="."){
             continue;
         }
-        $rx = $ry = $bx = $by = -1;
-        for($tx=$x+1; $tx<$width; $tx++){
-            if(isset($lines[$y][$tx])&&$lines[$y][$tx]=='0'){
-                $rx = $tx;
-                $ry = $y;
+        $rightx = $righty = $downx = $downy = -1;
+        for($temporaryx = $x+1; $temporaryx < $width; $temporaryx++){
+            if(isset($lines[$y][$temporaryx]) && $lines[$y][$temporaryx] == '0'){
+                $rightx = $temporaryx;
+                $righty = $y;
                 break;
             }
         }
 
-        for($ty=$y+1; $ty<$height; $ty++){
-            if(isset($lines[$ty][$x])&&$lines[$ty][$x]=='0'){
-                $bx = $x;
-                $by = $ty;
+        for($temporaryy = $y+1; $temporaryy < $height; $temporaryy++){
+            if(isset($lines[$temporaryy][$x]) && $lines[$temporaryy][$x] == '0'){
+                $downx = $x;
+                $downy = $temporaryy;
                 break;
             }
         }
-        echo "$x $y $rx $ry $bx $by\n";
+        echo "$x $y $rightx $righty $downx $downy\n";
     }
 }
